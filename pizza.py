@@ -1,4 +1,5 @@
 # USE PYTHON AND SELENIUM TO ORDER A PIZZA.PY
+
 # This script orders pizza from Season's Pizza.
 # It does so by navagating through Season's website, like a real user.
 
@@ -9,14 +10,14 @@
 # Two diet cokes
 
 
-# ---------------------------------------------------------------------
+# --------------------------------------------------------------------
 
 
 from selenium import webdriver
 import time
 
 
-# Wrapper for calls to get id
+# Wrapper for calls to get button id and click it
 def clickId(id):
     return browser.find_element_by_id(id).click()
 
@@ -27,7 +28,7 @@ def sleep():
     time.sleep(2)
 
 
-# ---------------------------------------------------------------------
+# --------------------------------------------------------------------
 
 
 # Initialize browser
@@ -37,11 +38,13 @@ browser = webdriver.Chrome("C:\\Users\\Kevin\\chromedriver.exe")
 browser.get('https://seasonspizzaottawa.ca/')
 clickId('img_delivery')
 
+# Let page load
 sleep()
 
 # Choose the right pizza deal
 clickId("m_21107")
 
+# Let modal load
 sleep()
 
 # Make it large
@@ -50,7 +53,7 @@ clickId("nextStep_extras_1_0")
 
 # First pizza toppings
 clickId("ci_9475_2")  # Topping
-clickId("ci_9475_2-2")  # Whole pizza
+clickId("ci_9475_2-2")  # Select whole pizza
 clickId("ci_9479_2")
 clickId("ci_9479_2-2")
 clickId("ci_9470_2")
@@ -85,6 +88,7 @@ clickId("nextStep_drinks_6_4")
 # Add to cart
 clickId("placeOrderButton")
 
+# Let page load
 sleep()
 
 # Place order
