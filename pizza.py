@@ -19,13 +19,8 @@ import time
 
 # Wrapper for calls to get button id and click it
 def clickId(id):
+    time.sleep(.300)
     return browser.find_element_by_id(id).click()
-
-
-# We will need to pause every so often to make sure that
-# the webpage is able to fully load.
-def sleep():
-    time.sleep(2)
 
 
 # --------------------------------------------------------------------
@@ -38,14 +33,8 @@ browser = webdriver.Chrome("C:\\Users\\Kevin\\chromedriver.exe")
 browser.get('https://seasonspizzaottawa.ca/')
 clickId('img_delivery')
 
-# Let page load
-sleep()
-
 # Choose the right pizza deal
 clickId("m_21107")
-
-# Let modal load
-sleep()
 
 # Make it large
 clickId("extra_35250_1")
@@ -87,9 +76,6 @@ clickId("nextStep_drinks_6_4")
 
 # Add to cart
 clickId("placeOrderButton")
-
-# Let page load
-sleep()
 
 # Place order
 clickId("postOrderToCheckout")
